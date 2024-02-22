@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main-bg {
+	@apply bg-sky-700 text-white;
+}
+.btn-style {
+	@apply w-full mt-2 rounded-md p-2;
+}
+.inp-box {
+	@apply mt-2 border-2 btn-style placeholder:text-[#a1a1aa] font-normal;
+}
+.connectz-head {
+	@apply text-4xl text-sky-700 font-['Gugi','sans-serif'];
+}
+
+.main-body-div {
+	@apply h-screen grid items-center justify-end bg-[#bae6fd];
+}
+
+.content-body-div {
+	@apply flex flex-col items-center max-[485px]:mx-4 mx-8 max-w-md p-6 rounded-lg shadow-lg bg-white;
+}
