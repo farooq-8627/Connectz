@@ -7,7 +7,7 @@ Connectz is a real-time chat application built with React.js and Node.js. It all
 - **Real-time Messaging**: Send and receive messages in real-time.
 - **User Authentication**: Secure authentication system ensures user privacy.
 - **Profile Customization**: Customize your profile with avatars.
-- **Group Chat**: Create or join group chats.
+- **Community Chat**: Create or join community chats.
 - **Responsive Design**: Enjoy a seamless experience across devices.
 
 ## Technologies Used
