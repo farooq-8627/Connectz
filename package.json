@@ -4,11 +4,13 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
-		"dev": "vite",
-		"build": "npm install --legacy-peer-deps && npm install --legacy-peer-deps --prefix Backend && npm run build --prefix Backend && vite build",
+		"dev": "concurrently \"npm run dev:backend\" \"vite\"",
+		"dev:backend": "node Backend/app.js",
+		"build": "npm install --legacy-peer-deps && npm install --legacy-peer-deps --prefix Backend && npm run build:backend && vite build",
+		"build:backend": "cd Backend && npm run build",
 		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview",
-		"start": "vite"
+		"start": "npm run build && node Backend/app.js && vite preview"
 	},
 	"dependencies": {
 		"@chakra-ui/react": "^2.8.2",
