@@ -66,4 +66,17 @@ Connectz is a real-time chat application built with React.js and Node.js. It all
 ```bash
 http://localhost:3000
 ```
-**WEBSITE PREVIEW**
+## WEBSITE PREVIEW
+
+**Home Page**
+
+<img src="https://github.com/user-attachments/assets/0e270c09-846e-40ae-8def-5b24a17916c6" alt="connectz-home-page" width="75%" height="1000px"/>
+
+**Community Join Page**
+![connectz-cmunty-page](https://github.com/user-attachments/assets/e388f314-57c9-47f7-8524-c0f195256917)
+
+**Chat Page**
+<div style="display: flex; flex-direction: row; justify-content: space-between;">
+  <img src="https://github.com/user-attachments/assets/4a65c738-6e84-459e-b2f6-84ab2f9563ba" alt="connectz-chat-preview-1" width="50%"/>
+  <img src="https://github.com/user-attachments/assets/8cbaca35-9ca7-471f-abd0-3035bf7a9a74" alt="connectz-chat-preview-2" width="50%"/>
+</div>
