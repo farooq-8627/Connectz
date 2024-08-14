@@ -60,12 +60,10 @@ Connectz is a real-time chat application built with React.js and Node.js. It all
    node app.js
    ```
 
-WEBSITE PREVIEW PHOTOS
-
-
 
 **The app will start running on port:**
 
 ```bash
 http://localhost:3000
 ```
+**WEBSITE PREVIEW**
