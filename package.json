@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"build": "vite build",
+		"build": "npm install --legacy-peer-deps && npm install --legacy-peer-deps --prefix Backend && npm run build --prefix Backend && vite build",
 		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview",
 		"start": "vite"
