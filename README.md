@@ -70,7 +70,7 @@ http://localhost:3000
 
 - **Home Page**
 
-<img src="https://github.com/user-attachments/assets/0e270c09-846e-40ae-8def-5b24a17916c6" alt="connectz-home-page" width="60%" height="1000px"/>
+<img src="https://github.com/user-attachments/assets/0e270c09-846e-40ae-8def-5b24a17916c6" alt="connectz-home-page" width="75%"/>
 
 - **Community Join Page**
 
