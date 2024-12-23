@@ -1,0 +1,28 @@
+{
+	"name": "connectz-backend",
+	"version": "1.0.0",
+	"type": "module",
+	"main": "app.js",
+	"scripts": {
+		"start": "node app.js",
+		"dev": "nodemon app.js"
+	},
+	"dependencies": {
+		"bcryptjs": "^2.4.3",
+		"cookie-parser": "^1.4.6",
+		"cors": "^2.8.5",
+		"dotenv": "^16.4.5",
+		"ejs": "^3.1.9",
+		"ejs-mate": "^4.0.0",
+		"express": "^4.18.2",
+		"express-async-handler": "^1.2.0",
+		"express-session": "^1.18.0",
+		"jsonwebtoken": "^9.0.2",
+		"method-override": "^3.0.0",
+		"mongoose": "^8.1.3",
+		"socket.io": "^4.7.5"
+	},
+	"devDependencies": {
+		"nodemon": "^3.1.0"
+	}
+}
