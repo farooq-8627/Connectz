@@ -31,7 +31,7 @@ import ProfileModel from "../Miscellaneous/ProfileModel";
 import ChatLoading from "../Miscellaneous/ChatLoading";
 import UserListItem from "../UserAvatar/UserListItem";
 import AccountSettings from "../Miscellaneous/AccountSettings";
-import getSender from "../../Config/chatLogic";
+import getSender from "../../config/chatLogic";
 import { API_BASE_URL } from "../../config/api";
 
 const SideDrawer = () => {

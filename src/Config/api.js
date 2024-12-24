@@ -1,39 +1,32 @@
+import axios from "axios";
 // API Base URL
 export const API_BASE_URL =
 	import.meta.env.VITE_API_URL || "http://localhost:3000";
 
-// API Endpoints
-export const ENDPOINTS = {
-	// Auth endpoints
-	AUTH: {
-		LOGIN: "/user/login",
-		SIGNUP: "/user/signup",
-		UPDATE_PROFILE: "/user/updateProfile",
-	},
+const API = axios.create({
+	baseURL: API_BASE_URL,
+	withCredentials: true,
+});
 
-	// Chat endpoints
-	CHAT: {
-		GET_CHATS: "/chat",
-		CREATE_GROUP: "/chat/group",
-		RENAME_GROUP: "/chat/rename",
-		UPDATE_DESCRIPTION: "/chat/updateDescription",
-		ADD_TO_GROUP: "/chat/groupadd",
-		REMOVE_FROM_GROUP: "/chat/groupremove",
-		GET_COMMUNITIES: "/chat/communities",
-	},
+API.interceptors.request.use((config) => {
+	const userInfo = localStorage.getItem("userInfo");
+	const token = userInfo ? JSON.parse(userInfo).token : null;
 
-	// Message endpoints
-	MESSAGE: {
-		SEND: "/message",
-		GET_ALL: "/message",
-	},
+	if (token) {
+		config.headers.Authorization = `Bearer ${token}`;
+	}
+	return config;
+});
 
-	// User endpoints
-	USER: {
-		SEARCH: "/user",
-	},
-};
+API.interceptors.response.use(
+	(response) => response,
+	(error) => {
+		console.error("API Error:", error.response?.data || error.message);
+		return Promise.reject(error);
+	}
+);
 
+export { API };
 // API Headers
 export const getHeaders = (token) => ({
 	"Content-Type": "application/json",

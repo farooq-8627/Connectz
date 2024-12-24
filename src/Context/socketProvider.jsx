@@ -6,7 +6,10 @@ import { API_BASE_URL } from "../config/api";
 const SocketContext = createContext();
 
 const SocketProvider = ({ children }) => {
-	const socket = io(API_BASE_URL);
+	const socket = io(API_BASE_URL, {
+		withCredentials: true,
+		transports: ["websocket"],
+	});
 	const [socketConnected, setSocketConnected] = useState(false);
 	// const [isTyping, setIsTyping] = useState(false);
 	// const [typing, setTyping] = useState(false);

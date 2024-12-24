@@ -1,11 +1,11 @@
 import React from "react";
 import ScrollableFeed from "react-scrollable-feed";
-import isSameSender from "../../Config/isSameSender";
+import isSameSender from "../../config/isSameSender";
 import { ChatState } from "../../Context/chatProvider";
-import isLastMessage from "../../Config/isLastMessage";
+import isLastMessage from "../../config/isLastMessage";
 import { Avatar, Tooltip } from "@mui/material";
-import isSameSenderMargin from "../../Config/isSameSenderMargin";
-import isSameUser from "../../Config/isSameUser";
+import isSameSenderMargin from "../../config/isSameSenderMargin";
+import isSameUser from "../../config/isSameUser";
 
 const ScrollableChat = ({ messages }) => {
 	const { user } = ChatState();

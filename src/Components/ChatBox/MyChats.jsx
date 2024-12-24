@@ -3,12 +3,12 @@ import { ChatState } from "../../Context/chatProvider";
 import { ToastContainer, toast } from "react-toastify";
 import { Box, Button, Stack, Typography, ListItem, List } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import getSender from "../../Config/chatLogic";
+import getSender from "../../config/chatLogic";
 import ChatLoading from "../Miscellaneous/ChatLoading";
 import CommChatModal from "./CommChatModal";
 import FetchChats from "./FetchChats";
 import { useSocket } from "../../Context/socketProvider";
-
+import { API_BASE_URL } from "../../config/api";
 const MyChats = ({ fetchAgain }) => {
 	const [loggedUser, setLoggedUser] = useState();
 	const { user, setUser, selectedChat, setSelectedChat, chats, setChats } =
@@ -20,6 +20,7 @@ const MyChats = ({ fetchAgain }) => {
 	const fetchChats = async (userId) => {
 		try {
 			setLoadingChat(true);
+			console.log("user", user);
 			const config = {
 				method: "GET",
 				headers: {
@@ -27,11 +28,13 @@ const MyChats = ({ fetchAgain }) => {
 				},
 			};
 			const response = await fetch(`${API_BASE_URL}/chat`, config);
+			console.log("response", response);
 			if (!response.ok) {
+				console.log("response", response);
 				throw new Error("Failed to fetch chats");
 			}
 			const data = await response.json();
-			// console.log(data);
+			console.log("data", data);
 			setChats(data);
 		} catch (error) {
 			toast.error("Error! fetching the chats");

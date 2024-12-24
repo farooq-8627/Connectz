@@ -13,6 +13,7 @@ import notFound from "./middlewares/notFound.js";
 import errorHandler from "./middlewares/errorMiddleware.js";
 import path from "path";
 import { fileURLToPath } from "url";
+import requestLogger from "./middlewares/requestLogger.js";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -34,9 +35,21 @@ app.use(methodOverride("_method"));
 app.use(cookieParser("secretcode"));
 app.use(cors());
 
-app.use("/say", (req, res) => {
-	console.log(req.body);
-	res.send("Hello");
+app.use(requestLogger);
+
+app.get("/", (req, res) => {
+	res.json({
+		status: "success",
+		message: "Welcome to Connectz API",
+	});
+});
+
+app.get("/api/test", (req, res) => {
+	res.json({
+		status: "success",
+		message: "API is working",
+		timestamp: new Date().toISOString(),
+	});
 });
 
 app.use("/user", userRouter);
@@ -46,25 +59,14 @@ app.use("/message", messageRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
-// const server = app.listen(port, () => {
-// 	console.log(`Server is listening on port: ${port}`);
-// });
-
-// const io = require("socket.io")(server, {
-// 	pingTimeout: 60000,
-// 	cors: {
-// 		origin: "http://localhost:3000",
-// 	},
-// });
-
-// io.on("connection", (socket) => {
-// 	console.log("connected to socket.io");
-// });
-
 import http from "http";
 import { Server } from "socket.io";
 
 const server = http.createServer(app);
+
+server.on("error", (error) => {
+	console.error("Server error:", error);
+});
 
 server.listen(port, () => {
 	console.log(`Server is listening on port: ${port}`);
@@ -73,7 +75,8 @@ server.listen(port, () => {
 const io = new Server(server, {
 	pingTimeout: 60000,
 	cors: {
-		origin: "http://localhost:3000",
+		origin: ["http://localhost:5173", "http://127.0.0.1:5173"],
+		credentials: true,
 	},
 });
 

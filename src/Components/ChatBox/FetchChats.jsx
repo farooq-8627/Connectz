@@ -2,15 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Box, Stack, Typography } from "@mui/material";
 import { ChatState } from "../../Context/chatProvider";
 import ChatLoading from "../Miscellaneous/ChatLoading";
-import getSender from "../../Config/chatLogic";
+import getSender from "../../config/chatLogic";
 import { Avatar } from "@mui/material";
 
-const FetchChats = ({
-	chatFetch,
-	loggedUser,
-	loading,
-	children,
-}) => {
+const FetchChats = ({ chatFetch, loggedUser, loading, children }) => {
 	const { selectedChat, setSelectedChat } = ChatState();
 
 	const formatTime = (timestamp) => {
@@ -34,7 +29,7 @@ const FetchChats = ({
 			return `${formattedHours}:${minutes < 10 ? "0" : ""}${minutes} ${amOrPm}`;
 		}
 	};
-	
+
 	return (
 		<Box className="mychats-chats">
 			{chatFetch.length ? (

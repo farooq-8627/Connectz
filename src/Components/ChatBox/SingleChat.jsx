@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ChatState } from "../../Context/chatProvider";
 import { Box, Typography } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { getSender } from "../../Config/chatLogic";
+import { getSender } from "../../config/chatLogic";
 import ProfileModel from "../Miscellaneous/ProfileModel";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import getSenderFull from "../Miscellaneous/getSenderFull";
@@ -14,7 +14,7 @@ import { Loop, Send } from "@mui/icons-material";
 import ScrollableChat from "./ScrollableChat";
 import io from "socket.io-client";
 import { useSocket } from "../../Context/socketProvider";
-import { API_BASE_URL } from "../config/api";
+import { API_BASE_URL } from "../../config/api";
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
