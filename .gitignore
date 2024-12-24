@@ -23,3 +23,14 @@ dist-ssr
 *.sln
 *.sw?
 **/.DS_Store
+
+# Environment variables
+.env
+
+# MongoDB
+.env.local
+.env.development
+.env.production
+
+# SSL
+.ssl
